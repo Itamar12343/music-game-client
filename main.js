@@ -1,11 +1,19 @@
 import './style.scss';
 import { io } from "socket.io-client";
-//const socket = io("http://localhost:3000/");
+const socket = io("http://localhost:3000/");
 const before_load_btn = document.querySelectorAll(".before-load-btn");
-const withFriend = document.querySelector(".with-friend");
-const alone = document.querySelector(".alone");
-const withFriendOnline = document.querySelector(".with-friend-online");
-const before_load_box = document.querySelector(".before-load-box");
+const withFriend = el(".with-friend");
+const alone = el(".alone");
+const withFriendOnline = el(".with-friend-online");
+const before_load_box = el(".before-load-box");
+const blocker = el(".blocker");
+const input_box = el(".input-box");
+const input = el(".input");
+const join_btn = el("join-btn");
+
+function el(element) {
+    return document.querySelector(element);
+}
 
 function listenToModes() {
     alone.addEventListener("click", () => {
@@ -34,6 +42,7 @@ function goToGame() {
     setTimeout(() => {
         before_load_box.style.transform = "scale(1.2)";
         before_load_box.style.transform = "translateX(-100%)";
+        input.focus();
         setTimeout(() => {
             before_load_box.style.transform = "scale(0)";
         }, 300);
