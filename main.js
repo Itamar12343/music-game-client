@@ -15,6 +15,13 @@ function el(element) {
     return document.querySelector(element);
 }
 
+function eventListeners() {
+    input.onkeydown = () => {
+        console.log("bhjk");
+        socket.emit("join game", input.value);
+    }
+}
+
 function listenToModes() {
     alone.addEventListener("click", () => {
         console.log("alone");
@@ -59,6 +66,7 @@ function btnAnimation(btn) {
 function initializeEverything() {
     listenToBtnEvent();
     listenToModes();
+    eventListeners();
 }
 
 function playWithFriendOnline() {
