@@ -11,7 +11,8 @@ const input_box = el(".input-box");
 const input = el(".input");
 const join_btn = el(".join-btn");
 const input_text = el(".input-text");
-let room;
+const title = el(".title");
+let room = false;
 
 function el(element) {
     return document.querySelector(element);
@@ -20,11 +21,20 @@ function el(element) {
 function eventListeners() {
 
     input.onkeyup = () => {
-        socket.emit("join game", input.value);
+        socket.emit("get room status", input.value);
     }
 
     join_btn.onclick = () => {
-        input_box.style.transform = "translate(-50%,-50%) scale(0)";
+        if (room === true) {
+            socket.emit("join room", input.value);
+            input_box.style.transform = "translate(-50%,-50%) scale(1.2)";
+            setTimeout(() => {
+                input_box.style.transform = "translate(-50%,-50%) scale(0)";
+                setTimeout(() => {
+                    title.style.opacity = "1";
+                }, 600);
+            }, 300);
+        }
     }
 }
 
@@ -35,18 +45,26 @@ function socketListeners() {
             if (data.numberOfUsers > 0 && data.numberOfUsers < 3) {
                 join_btn.style.backgroundColor = "#85ffa9";
                 join_btn.style.cursor = "pointer";
-                room = data.room;
-                input_text.textContent = ` הצתרפות למשחק ${data.room}`;
+                room = true;
             } else {
                 join_btn.style.backgroundColor = "";
                 join_btn.style.cursor = "not-allowed";
                 input_text.textContent = `המשחק כבר תפוס`;
+                room = false;
             }
 
         } else {
             join_btn.style.backgroundColor = "";
             join_btn.style.cursor = "not-allowed";
             input_text.textContent = "הצתרפות למשחק";
+            room = false;
+        }
+
+        if (data.numberOfUsers === 2) {
+            input_text.textContent = ` הצתרפות למשחק ${data.room}`;
+        }
+        if (data.numberOfUsers === 1) {
+            input_text.textContent = ` יצירת משחק ${data.room}`;
         }
     });
 
