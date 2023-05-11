@@ -50,6 +50,7 @@ function socketListeners() {
                 join_btn.style.backgroundColor = "";
                 join_btn.style.cursor = "not-allowed";
                 input_text.textContent = `המשחק כבר תפוס`;
+                join_btn.textContent = "הצתרף";
                 room = false;
             }
 
@@ -62,9 +63,11 @@ function socketListeners() {
 
         if (data.numberOfUsers === 2) {
             input_text.textContent = ` הצתרפות למשחק ${data.room}`;
+            join_btn.textContent = "הצתרף";
         }
         if (data.numberOfUsers === 1) {
             input_text.textContent = ` יצירת משחק ${data.room}`;
+            join_btn.textContent = "צור משחק";
         }
     });
 
