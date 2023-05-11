@@ -16,10 +16,15 @@ function el(element) {
 }
 
 function eventListeners() {
-    input.onkeydown = () => {
-        console.log("bhjk");
+    input.onkeyup = () => {
         socket.emit("join game", input.value);
     }
+}
+
+function socketListeners() {
+    socket.on("room status", data => {
+        console.log("room: " + data.room + " number: " + data.numberOfUsers);
+    });
 }
 
 function listenToModes() {
@@ -67,6 +72,7 @@ function initializeEverything() {
     listenToBtnEvent();
     listenToModes();
     eventListeners();
+    socketListeners();
 }
 
 function playWithFriendOnline() {
