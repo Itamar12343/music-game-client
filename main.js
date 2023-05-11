@@ -18,8 +18,13 @@ function el(element) {
 }
 
 function eventListeners() {
+
     input.onkeyup = () => {
         socket.emit("join game", input.value);
+    }
+
+    join_btn.onclick = () => {
+        input_box.style.transform = "translate(-50%,-50%) scale(0)";
     }
 }
 
@@ -96,7 +101,7 @@ function initializeEverything() {
 }
 
 function playWithFriendOnline() {
-
+    input_box.style.opacity = "1";
 }
 
 initializeEverything();
