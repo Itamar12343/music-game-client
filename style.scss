@@ -101,6 +101,11 @@ body {
     border: 4px solid #6fc1ff;
 }
 
+.input-text {
+    font-size: 40px;
+    text-align: center;
+}
+
 .join-btn {
     font-size: 30px;
     position: absolute;
@@ -110,7 +115,9 @@ body {
     border-radius: 6px;
     border: none;
     padding: 6px;
-    cursor: pointer;
+    cursor: not-allowed;
+    background-color: #cdcccc;
+    transition: 0.3s;
 }
 
 .blocker {

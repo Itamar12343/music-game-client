@@ -9,7 +9,9 @@ const before_load_box = el(".before-load-box");
 const blocker = el(".blocker");
 const input_box = el(".input-box");
 const input = el(".input");
-const join_btn = el("join-btn");
+const join_btn = el(".join-btn");
+const input_text = el(".input-text");
+let room;
 
 function el(element) {
     return document.querySelector(element);
@@ -22,9 +24,27 @@ function eventListeners() {
 }
 
 function socketListeners() {
+
     socket.on("room status", data => {
-        console.log("room: " + data.room + " number: " + data.numberOfUsers);
+        if (data.room !== "") {
+            if (data.numberOfUsers > 0 && data.numberOfUsers < 3) {
+                join_btn.style.backgroundColor = "#85ffa9";
+                join_btn.style.cursor = "pointer";
+                room = data.room;
+                input_text.textContent = ` הצתרפות למשחק ${data.room}`;
+            } else {
+                join_btn.style.backgroundColor = "";
+                join_btn.style.cursor = "not-allowed";
+                input_text.textContent = `המשחק כבר תפוס`;
+            }
+
+        } else {
+            join_btn.style.backgroundColor = "";
+            join_btn.style.cursor = "not-allowed";
+            input_text.textContent = "הצתרפות למשחק";
+        }
     });
+
 }
 
 function listenToModes() {
