@@ -134,6 +134,7 @@ body {
     z-index: 1;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    transition: 0.4s;
 }
 
 .title {

@@ -68,8 +68,8 @@ function socketListeners() {
     });
 
     socket.on("the connection started", () => {
-        count_down_animation();
         toggleTitle(false);
+        count_down_animation();
     });
 }
 
@@ -149,6 +149,7 @@ function count_down_animation_part(number, color) {
                 setTimeout(() => {
                     if (number === 0) {
                         count_down.style.transform = "translate(-50%,-50%) scale(0)";
+                        blocker.style.opacity = "0";
                     } else {
                         count_down.style.transform = "translate(-50%,-50%) scale(0.6)";
                     }
