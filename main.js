@@ -13,6 +13,8 @@ const join_btn = el(".join-btn");
 const input_text = el(".input-text");
 const title = el(".title");
 const count_down = el(".count-down");
+const my_character = el(".my-character");
+const his_character = el(".his-character");
 let room = false;
 
 function el(element) {
@@ -175,6 +177,11 @@ function initializeEverything() {
 
 function playWithFriendOnline() {
     input_box.style.opacity = "1";
+    document.addEventListener("keyup", () => {
+        let right = window.getComputedStyle(my_character).right;
+        console.log(right);
+        my_character.style.right = right - 10;
+    });
 }
 
 initializeEverything();
