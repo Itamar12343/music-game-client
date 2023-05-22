@@ -176,12 +176,19 @@ function initializeEverything() {
 }
 
 function playWithFriendOnline() {
+    let my_character_position = 50;
     input_box.style.opacity = "1";
-    document.addEventListener("keyup", () => {
-        let right = window.getComputedStyle(my_character).right;
-        console.log(right);
-        my_character.style.right = right - 10;
+
+    document.addEventListener("keyup", (e) => {
+        if (e.key === "ArrowRight") {
+            my_character_position = my_character_position - 10;
+        }
+        if (e.key === "ArrowLeft") {
+            my_character_position = my_character_position + 10;
+        }
+        my_character.style.right = `${my_character_position}%`;
     });
+
 }
 
 initializeEverything();
