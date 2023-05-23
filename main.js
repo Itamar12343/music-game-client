@@ -176,19 +176,55 @@ function initializeEverything() {
 }
 
 function playWithFriendOnline() {
-    let my_character_position = 50;
+    let my_character_position = 10;
     input_box.style.opacity = "1";
 
     document.addEventListener("keyup", (e) => {
-        if (e.key === "ArrowRight") {
-            my_character_position = my_character_position - 10;
+        if (e.key === "ArrowRight" && my_character_position >= 15) {
+            my_character_position = my_character_position - 4;
+            walkAnimation(my_character, "right", "me");
         }
-        if (e.key === "ArrowLeft") {
-            my_character_position = my_character_position + 10;
+        if (e.key === "ArrowLeft" && my_character_position <= 84) {
+            my_character_position = my_character_position + 4;
+            walkAnimation(my_character, "left", "me");
         }
         my_character.style.right = `${my_character_position}%`;
+        console.log(my_character_position);
     });
 
+}
+
+function walkAnimation(character, direction, who) {
+    let walk1;
+    let walk2;
+
+    if (who === "me") {
+        if (direction === "left") {
+            walk1 = "./frames/characters/character green/walk/walk left 2.png";
+            walk2 = "./frames/characters/character green/walk/walk left 1.png";
+        } else {
+            walk1 = "./frames/characters/character green/walk/walk right 2.png";
+            walk2 = "./frames/characters/character green/walk/walk right 1.png";
+        }
+
+    }
+    if (who === "he") {
+        if (direction === "left") {
+            walk1 = "./frames/characters/character blue/walk/walk left 2.png";
+            walk2 = "./frames/characters/character blue/walk/walk left 1.png";
+        } else {
+            walk1 = "./frames/characters/character blue/walk/walk right 2.png";
+            walk2 = "./frames/characters/character blue/walk/walk right 1.png";
+        }
+
+    }
+
+    setTimeout(() => {
+        character.src = walk1;
+        setTimeout(() => {
+            character.src = walk2;
+        }, 100);
+    }, 100);
 }
 
 initializeEverything();

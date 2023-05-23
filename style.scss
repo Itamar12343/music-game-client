@@ -9,6 +9,9 @@ body {
     width: 100vw;
     position: absolute;
     top: 0;
+    background-image: url("./frames//backgrounds/main background.png");
+    background-size: cover;
+    background-position: center;
 }
 
 
@@ -54,7 +57,7 @@ body {
     background-color: aqua;
     position: absolute;
     z-index: -1;
-    filter: blur(4px) brightness(0.8);
+    //filter: blur(4px) brightness(0.8);
 }
 
 .before-load-btn {
@@ -183,7 +186,8 @@ body {
     height: 100px;
     width: 100px;
     right: 6%;
-    top: 56%;
+    top: 58%;
+    transition: 0.3s;
 }
 
 .his-character {
@@ -191,5 +195,6 @@ body {
     height: 100px;
     width: 100px;
     right: 88%;
-    top: 56%;
+    top: 58%;
+    transition: 0.3s;
 }
