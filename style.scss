@@ -30,42 +30,38 @@ body {
 
 .block {
     height: 10px;
-    width: 10vw;
+    width: 6vw;
     background-color: aqua;
     margin: 20px;
     margin-top: 46vh;
     position: absolute;
-    //top: 24%;
+    top: 24%;
 }
 
 .block-one {
     position: absolute;
-    left: 4%;
+    left: 12.5%;
 }
 
 .block-two {
     position: absolute;
-    left: 18%;
+    left: 27.5%;
 }
 
 .block-three {
     position: absolute;
-    left: 33%;
+    width: 10vw;
+    left: 43.2%;
 }
 
 .block-four {
     position: absolute;
-    left: 53%;
+    left: 63%;
 }
 
 .block-five {
     position: absolute;
-    left: 68%;
-}
-
-.block-six {
-    position: absolute;
-    left: 83%;
+    left: 78%;
 }
 
 .divider {
@@ -249,6 +245,7 @@ body {
     right: 6%;
     top: 58%;
     transition: 0.3s;
+    background-color: #fff;
 }
 
 .his-character {

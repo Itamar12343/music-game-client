@@ -15,17 +15,26 @@ const title = el(".title");
 const count_down = el(".count-down");
 const my_character = el(".my-character");
 const his_character = el(".his-character");
-const block = el(".block");
-const block_one = el(".block-one");
-const block_two = el(".block-two");
-const block_three = el(".block-three");
-const block_four = el(".block-four");
-const block_five = el(".block-five");
-const block_six = el(".block-six");
+
 let room = false;
 
 function el(element) {
     return document.querySelector(element);
+}
+
+function blockPosition() {
+    const block_one = el(".block-one");
+    const block_two = el(".block-two");
+    const block_three = el(".block-three");
+    const block_four = el(".block-four");
+    const block_five = el(".block-five");
+    let one = window.getComputedStyle(block_one).left;
+    let two = window.getComputedStyle(block_two).left;
+    let three = window.getComputedStyle(block_three).left;
+    let four = window.getComputedStyle(block_four).left;
+    let five = window.getComputedStyle(block_five).left;
+
+    return [one, two, three, four, five];
 }
 
 function eventListeners() {
@@ -207,9 +216,20 @@ function playWithFriendOnline() {
             }
             walkAnimation(my_character, "left", "me");
         }
-        my_character.style.right = `${my_character_position}%`;
-        console.log(my_character_position);
-        console.log("blck position: " + window.getComputedStyle(block).left);
+
+        for (let i = 0; i < 5; i++) {
+            let blockLeft = parseInt(blockPosition()[i]);
+            let myLeft = parseInt(window.getComputedStyle(my_character).left);
+            let h = Math.max(window.innerHeight);
+            let blockWidth = (6 * h) / 100;
+
+            if (myLeft + 100 >= blockLeft && myLeft <= blockLeft + blockWidth) {
+                console.log("intersecting");
+            } else {
+                my_character.style.right = `${my_character_position}%`;
+                console.log("not");
+            }
+        }
     }
 }
 
