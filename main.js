@@ -15,6 +15,7 @@ const title = el(".title");
 const count_down = el(".count-down");
 const my_character = el(".my-character");
 const his_character = el(".his-character");
+const block = el(".block");
 let room = false;
 
 function el(element) {
@@ -163,8 +164,10 @@ function count_down_animation_part(number, color) {
 
 function btnAnimation(btn) {
     btn.style.transform = "scale(1.3)";
+    btn.style.borderRadius = "100px";
     setTimeout(() => {
         btn.style.transform = "scale(1)";
+        btn.style.borderRadius = "20px";
     }, 200);
 }
 
@@ -180,18 +183,27 @@ function playWithFriendOnline() {
     input_box.style.opacity = "1";
 
     document.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowRight" && my_character_position >= 4) {
-            my_character_position = my_character_position - 2;
+        keyHandler(e);
+    });
+
+
+    function keyHandler(e) {
+        if (e.key === "ArrowRight") {
+            if (my_character_position >= 4) {
+                my_character_position = my_character_position - 2;
+            }
             walkAnimation(my_character, "right", "me");
         }
-        if (e.key === "ArrowLeft" && my_character_position <= 88) {
-            my_character_position = my_character_position + 2;
+        if (e.key === "ArrowLeft") {
+            if (my_character_position <= 88) {
+                my_character_position = my_character_position + 2;
+            }
             walkAnimation(my_character, "left", "me");
         }
         my_character.style.right = `${my_character_position}%`;
         console.log(my_character_position);
-    });
-
+        console.log("blck position: " + window.getComputedStyle(block).left)
+    }
 }
 
 function walkAnimation(character, direction, who) {
@@ -226,5 +238,6 @@ function walkAnimation(character, direction, who) {
         }, 100);
     }, 100);
 }
+
 
 initializeEverything();

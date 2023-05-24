@@ -26,6 +26,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+*/
 
 .block {
     height: 10px;
@@ -33,8 +34,39 @@ body {
     background-color: aqua;
     margin: 20px;
     margin-top: 46vh;
+    position: absolute;
+    //top: 24%;
 }
-*/
+
+.block-one {
+    position: absolute;
+    left: 4%;
+}
+
+.block-two {
+    position: absolute;
+    left: 18%;
+}
+
+.block-three {
+    position: absolute;
+    left: 33%;
+}
+
+.block-four {
+    position: absolute;
+    left: 53%;
+}
+
+.block-five {
+    position: absolute;
+    left: 68%;
+}
+
+.block-six {
+    position: absolute;
+    left: 83%;
+}
 
 .divider {
     width: 10vw;
@@ -57,7 +89,7 @@ body {
     background-color: aqua;
     position: absolute;
     z-index: -1;
-    //filter: blur(4px) brightness(0.8);
+    filter: blur(4px) brightness(0.8);
 }
 
 .before-load-btn {
@@ -68,7 +100,7 @@ body {
     transition: 0.2s;
     height: 200px;
     width: 200px;
-    background-color: #fff;
+    background-color: rgb(255, 255, 255, 0.4);
     border-radius: 20px;
 }
 
@@ -97,7 +129,7 @@ body {
     background-image: url("./frames/assets/button\ two\ players\ online\ on.png");
     background-position: center;
     background-size: cover;
-    width: 350px;
+    width: 400px;
 }
 
 .with-friend-online-img:hover {
