@@ -221,7 +221,7 @@ function playWithFriendOnline() {
             let blockLeft = parseInt(blockPosition()[i]);
             let myLeft = parseInt(window.getComputedStyle(my_character).left);
             let h = Math.max(window.innerHeight);
-            let blockWidth = (6 * h) / 100;
+            let blockWidth = (4 * h) / 100;
 
             if (myLeft + 100 >= blockLeft && myLeft <= blockLeft + blockWidth) {
                 console.log("intersecting");
