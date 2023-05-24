@@ -176,16 +176,16 @@ function initializeEverything() {
 }
 
 function playWithFriendOnline() {
-    let my_character_position = 10;
+    let my_character_position = 4;
     input_box.style.opacity = "1";
 
-    document.addEventListener("keyup", (e) => {
-        if (e.key === "ArrowRight" && my_character_position >= 15) {
-            my_character_position = my_character_position - 4;
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" && my_character_position >= 4) {
+            my_character_position = my_character_position - 2;
             walkAnimation(my_character, "right", "me");
         }
-        if (e.key === "ArrowLeft" && my_character_position <= 84) {
-            my_character_position = my_character_position + 4;
+        if (e.key === "ArrowLeft" && my_character_position <= 88) {
+            my_character_position = my_character_position + 2;
             walkAnimation(my_character, "left", "me");
         }
         my_character.style.right = `${my_character_position}%`;

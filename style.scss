@@ -61,18 +61,47 @@ body {
 }
 
 .before-load-btn {
-    border: 2px solid rgb(245, 255, 131);
-    border-radius: 10px;
     font-size: 30px;
     padding: 10px;
     margin: 10px;
     cursor: pointer;
-    background-color: rgb(245, 255, 131);
-    transition: 0.3s;
+    transition: 0.2s;
+    height: 200px;
+    width: 200px;
+    background-color: #fff;
+    border-radius: 20px;
 }
 
-.before-load-btn:hover {
-    background-color: transparent;
+.alone-img {
+    background-image: url("./frames/assets/button\ one\ player\ on.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.alone-img:hover {
+    background-image: url("./frames/assets/button\ one\ player\ off.png");
+}
+
+.with-friend-img {
+    background-image: url("./frames/assets/button\ two\ players\ on.png");
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+}
+
+.with-friend-img:hover {
+    background-image: url("./frames/assets/button\ two\ players\ off.png");
+}
+
+.with-friend-online-img {
+    background-image: url("./frames/assets/button\ two\ players\ online\ on.png");
+    background-position: center;
+    background-size: cover;
+    width: 350px;
+}
+
+.with-friend-online-img:hover {
+    background-image: url("./frames/assets/button\ two\ players\ online\ off.png");
 }
 
 .input-box {
