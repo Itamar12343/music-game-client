@@ -16,6 +16,12 @@ const count_down = el(".count-down");
 const my_character = el(".my-character");
 const his_character = el(".his-character");
 const block = el(".block");
+const block_one = el(".block-one");
+const block_two = el(".block-two");
+const block_three = el(".block-three");
+const block_four = el(".block-four");
+const block_five = el(".block-five");
+const block_six = el(".block-six");
 let room = false;
 
 function el(element) {
@@ -104,6 +110,7 @@ function goToGame() {
         before_load_box.style.transform = "scale(1.2)";
         before_load_box.style.transform = "translateX(-100%)";
         input.focus();
+
         setTimeout(() => {
             before_load_box.style.transform = "scale(0)";
         }, 300);
@@ -202,7 +209,7 @@ function playWithFriendOnline() {
         }
         my_character.style.right = `${my_character_position}%`;
         console.log(my_character_position);
-        console.log("blck position: " + window.getComputedStyle(block).left)
+        console.log("blck position: " + window.getComputedStyle(block).left);
     }
 }
 
