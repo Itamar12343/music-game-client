@@ -30,7 +30,7 @@ body {
 
 .block {
     height: 10px;
-    width: 4vw;
+    width: 6vw;
     background-color: aqua;
     margin: 20px;
     margin-top: 46vh;
@@ -40,28 +40,32 @@ body {
 
 .block-one {
     position: absolute;
-    left: 12.5%;
+    left: 4%;
 }
 
 .block-two {
     position: absolute;
-    left: 27.5%;
+    left: 18%;
 }
 
 .block-three {
     position: absolute;
-    width: 10vw;
-    left: 43.2%;
+    left: 33%;
 }
 
 .block-four {
     position: absolute;
-    left: 63%;
+    left: 53%;
 }
 
 .block-five {
     position: absolute;
-    left: 78%;
+    left: 68%;
+}
+
+.block-six {
+    position: absolute;
+    left: 83%;
 }
 
 .divider {

@@ -28,13 +28,15 @@ function blockPosition() {
     const block_three = el(".block-three");
     const block_four = el(".block-four");
     const block_five = el(".block-five");
+    const block_six = el(".block-six");
     let one = window.getComputedStyle(block_one).left;
     let two = window.getComputedStyle(block_two).left;
     let three = window.getComputedStyle(block_three).left;
     let four = window.getComputedStyle(block_four).left;
     let five = window.getComputedStyle(block_five).left;
+    let six = window.getComputedStyle(block_six).left;
 
-    return [one, two, three, four, five];
+    return [one, two, three, four, five, six];
 }
 
 function eventListeners() {
@@ -217,16 +219,16 @@ function playWithFriendOnline() {
             walkAnimation(my_character, "left", "me");
         }
 
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 6; i++) {
             let blockLeft = parseInt(blockPosition()[i]);
             let myLeft = parseInt(window.getComputedStyle(my_character).left);
             let h = Math.max(window.innerHeight);
-            let blockWidth = (4 * h) / 100;
+            let blockWidth = (6 * h) / 100;
 
             if (myLeft + 100 >= blockLeft && myLeft <= blockLeft + blockWidth) {
                 console.log("intersecting");
-            } else {
                 my_character.style.right = `${my_character_position}%`;
+            } else {
                 console.log("not");
             }
         }
