@@ -29,14 +29,27 @@ function blockPosition() {
     const block_four = el(".block-four");
     const block_five = el(".block-five");
     const block_six = el(".block-six");
+    const block_seven = el(".block-seven");
+    const block_eight = el(".block-eight");
+    const block_nine = el(".block-nine");
+    const block_ten = el(".block-ten");
+    const block_eleven = el(".block-eleven");
+    const block_twelve = el(".block-twelve");
     let one = window.getComputedStyle(block_one).left;
     let two = window.getComputedStyle(block_two).left;
     let three = window.getComputedStyle(block_three).left;
     let four = window.getComputedStyle(block_four).left;
     let five = window.getComputedStyle(block_five).left;
     let six = window.getComputedStyle(block_six).left;
+    let seven = window.getComputedStyle(block_seven).left;
+    let eight = window.getComputedStyle(block_eight).left;
+    let nine = window.getComputedStyle(block_nine).left;
+    let ten = window.getComputedStyle(block_ten).left;
+    let eleven = window.getComputedStyle(block_eleven).left;
+    let twelve = window.getComputedStyle(block_twelve).left;
 
-    return [one, two, three, four, five, six];
+
+    return [one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve];
 }
 
 function eventListeners() {
@@ -94,6 +107,7 @@ function socketListeners() {
 }
 
 function listenToModes() {
+
     alone.addEventListener("click", () => {
         console.log("alone");
     });
@@ -197,7 +211,6 @@ function initializeEverything() {
 }
 
 function playWithFriendOnline() {
-    let my_character_position = 4;
     input_box.style.opacity = "1";
 
     document.addEventListener("keydown", (e) => {
@@ -205,33 +218,46 @@ function playWithFriendOnline() {
     });
 
 
-    function keyHandler(e) {
-        if (e.key === "ArrowRight") {
-            if (my_character_position >= 4) {
-                my_character_position = my_character_position - 2;
-            }
-            walkAnimation(my_character, "right", "me");
-        }
-        if (e.key === "ArrowLeft") {
-            if (my_character_position <= 88) {
-                my_character_position = my_character_position + 2;
-            }
-            walkAnimation(my_character, "left", "me");
+}
+
+function keyHandler(e) {
+    let my_character_position = 4;
+
+    if (e.key === "ArrowRight") {
+        my_character_position = my_character_position - 2;
+        console.log(my_character_position);
+        checkMovement("right");
+        my_character.style.right = `${my_character_position}%`;
+        walkAnimation(my_character, "right", "me");
+    }
+    if (e.key === "ArrowLeft") {
+        my_character_position = my_character_position + 2;
+        console.log(my_character_position);
+        checkMovement("left");
+        my_character.style.right = `${my_character_position}%`;
+        walkAnimation(my_character, "left", "me");
+    }
+
+}
+
+function checkMovement(direction) {
+    let ismove = true;
+
+    for (let i = 0; i < 12; i++) {
+        let blockLeft = parseInt(blockPosition()[i]);
+        let myLeft = parseInt(window.getComputedStyle(my_character).left);
+        let h = Math.max(window.innerHeight);
+        let blockWidth = (2 * h) / 100;
+
+        if (myLeft + 90 >= blockLeft && myLeft <= blockLeft + blockWidth) {
+            console.log("intersecting");
+            ismove = false;
         }
 
-        for (let i = 0; i < 6; i++) {
-            let blockLeft = parseInt(blockPosition()[i]);
-            let myLeft = parseInt(window.getComputedStyle(my_character).left);
-            let h = Math.max(window.innerHeight);
-            let blockWidth = (6 * h) / 100;
-
-            if (myLeft + 100 >= blockLeft && myLeft <= blockLeft + blockWidth) {
-                console.log("intersecting");
-                my_character.style.right = `${my_character_position}%`;
-            } else {
-                console.log("not");
-            }
+        if (ismove === true) {
+            console.log(ismove);
         }
+
     }
 }
 

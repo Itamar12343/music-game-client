@@ -29,43 +29,73 @@ body {
 */
 
 .block {
-    height: 10px;
-    width: 6vw;
+    height: 100px;
+    width: 2vw;
     background-color: aqua;
     margin: 20px;
     margin-top: 46vh;
     position: absolute;
-    top: 24%;
+    top: 26%;
 }
 
 .block-one {
     position: absolute;
-    left: 4%;
+    left: 1%;
 }
 
 .block-two {
     position: absolute;
-    left: 18%;
+    left: 13.5%;
 }
 
 .block-three {
     position: absolute;
-    left: 33%;
+    left: 16%;
 }
 
 .block-four {
     position: absolute;
-    left: 53%;
+    left: 28%;
 }
 
 .block-five {
     position: absolute;
-    left: 68%;
+    left: 31%;
 }
 
 .block-six {
     position: absolute;
-    left: 83%;
+    left: 43.2%;
+}
+
+.block-seven {
+    position: absolute;
+    left: 51%;
+}
+
+.block-eight {
+    position: absolute;
+    left: 63.2%;
+}
+
+.block-nine {
+    position: absolute;
+    left: 66.2%;
+}
+
+.block-ten {
+    position: absolute;
+    left: 78%;
+}
+
+.block-eleven {
+    position: absolute;
+    left: 81.2%;
+}
+
+.block-twelve {
+    position: absolute;
+    left: 93.2%;
 }
 
 .divider {
@@ -244,19 +274,19 @@ body {
 
 .my-character {
     position: absolute;
-    height: 100px;
-    width: 100px;
+    height: 90px;
+    width: 90px;
     right: 6%;
-    top: 58%;
+    top: 59.2%;
     transition: 0.3s;
     background-color: #fff;
 }
 
 .his-character {
     position: absolute;
-    height: 100px;
-    width: 100px;
+    height: 90px;
+    width: 90px;
     right: 88%;
-    top: 58%;
+    top: 59.2%;
     transition: 0.3s;
 }
